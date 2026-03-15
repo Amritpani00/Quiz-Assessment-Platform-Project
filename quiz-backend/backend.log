@@ -1,0 +1,162 @@
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------------------< com.quiz:quiz-backend >------------------------
+[INFO] Building quiz-backend 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] >>> spring-boot:3.5.0:run (default-cli) > test-compile @ quiz-backend >>>
+[INFO]
+[INFO] --- resources:3.3.1:resources (default-resources) @ quiz-backend ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.14.0:compile (default-compile) @ quiz-backend ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO]
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quiz-backend ---
+[INFO] skip non existing resourceDirectory /app/quiz-backend/src/test/resources
+[INFO]
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ quiz-backend ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO]
+[INFO] <<< spring-boot:3.5.0:run (default-cli) < test-compile @ quiz-backend <<<
+[INFO]
+[INFO]
+[INFO] --- spring-boot:3.5.0:run (default-cli) @ quiz-backend ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-03-15T17:31:48.707Z  INFO 13895 --- [quiz-backend] [           main] c.quiz.backend.QuizBackendApplication    : Starting QuizBackendApplication using Java 21.0.10 with PID 13895 (/app/quiz-backend/target/classes started by jules in /app/quiz-backend)
+2026-03-15T17:31:48.712Z  INFO 13895 --- [quiz-backend] [           main] c.quiz.backend.QuizBackendApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-03-15T17:31:49.674Z  INFO 13895 --- [quiz-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-15T17:31:49.775Z  INFO 13895 --- [quiz-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89 ms. Found 7 JPA repository interfaces.
+2026-03-15T17:31:50.554Z  INFO 13895 --- [quiz-backend] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-15T17:31:50.576Z  INFO 13895 --- [quiz-backend] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-15T17:31:50.577Z  INFO 13895 --- [quiz-backend] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.41]
+2026-03-15T17:31:50.629Z  INFO 13895 --- [quiz-backend] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-15T17:31:50.631Z  INFO 13895 --- [quiz-backend] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1867 ms
+2026-03-15T17:31:50.839Z  INFO 13895 --- [quiz-backend] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-15T17:31:50.923Z  INFO 13895 --- [quiz-backend] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
+2026-03-15T17:31:50.973Z  INFO 13895 --- [quiz-backend] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-15T17:31:51.402Z  INFO 13895 --- [quiz-backend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-15T17:31:51.437Z  INFO 13895 --- [quiz-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-15T17:31:51.658Z  INFO 13895 --- [quiz-backend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=POSTGRES
+2026-03-15T17:31:51.661Z  INFO 13895 --- [quiz-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-15T17:31:51.687Z  WARN 13895 --- [quiz-backend] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-15T17:31:51.710Z  INFO 13895 --- [quiz-backend] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-15T17:31:52.984Z  INFO 13895 --- [quiz-backend] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate:
+    create table answers (
+        id bigint generated by default as identity,
+        attempt_id bigint not null,
+        is_correct boolean,
+        points_awarded integer,
+        question_id bigint not null,
+        selected_option_id bigint,
+        text_answer TEXT,
+        primary key (id)
+    )
+Hibernate:
+    create table attempts (
+        id bigint generated by default as identity,
+        session_id bigint not null,
+        started_at timestamp(6) not null,
+        submitted_at timestamp(6),
+        total_score integer,
+        user_id bigint not null,
+        primary key (id)
+    )
+Hibernate:
+    create table options (
+        id bigint generated by default as identity,
+        is_correct boolean not null,
+        text TEXT not null,
+        question_id bigint not null,
+        primary key (id)
+    )
+Hibernate:
+    create table questions (
+        id bigint generated by default as identity,
+        points integer not null,
+        position integer not null,
+        text TEXT not null,
+        type enum ('MCQ','SHORT') not null,
+        quiz_id bigint not null,
+        primary key (id)
+    )
+Hibernate:
+    create table quiz_sessions (
+        id bigint generated by default as identity,
+        ended_at timestamp(6),
+        join_code varchar(255) not null,
+        quiz_id bigint not null,
+        started_at timestamp(6) not null,
+        primary key (id)
+    )
+Hibernate:
+    create table quizzes (
+        id bigint generated by default as identity,
+        creator_id bigint not null,
+        description varchar(255),
+        status enum ('ACTIVE','CLOSED','DRAFT') not null,
+        time_limit_mins integer not null,
+        title varchar(255) not null,
+        primary key (id)
+    )
+Hibernate:
+    create table users (
+        id bigint generated by default as identity,
+        email varchar(255) not null,
+        name varchar(255),
+        password varchar(255),
+        role enum ('INSTRUCTOR','PARTICIPANT') not null,
+        primary key (id)
+    )
+Hibernate:
+    alter table if exists quiz_sessions
+       drop constraint if exists UKm5f8yc6oca553odrk01wj0084
+Hibernate:
+    alter table if exists quiz_sessions
+       add constraint UKm5f8yc6oca553odrk01wj0084 unique (join_code)
+Hibernate:
+    alter table if exists users
+       drop constraint if exists UK6dotkott2kjsp8vw4d0m25fb7
+Hibernate:
+    alter table if exists users
+       add constraint UK6dotkott2kjsp8vw4d0m25fb7 unique (email)
+Hibernate:
+    alter table if exists options
+       add constraint FK5bmv46so2y5igt9o9n9w4fh6y
+       foreign key (question_id)
+       references questions
+Hibernate:
+    alter table if exists questions
+       add constraint FKn3gvco4b0kewxc0bywf1igfms
+       foreign key (quiz_id)
+       references quizzes
+2026-03-15T17:31:53.100Z  INFO 13895 --- [quiz-backend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-15T17:31:53.680Z  INFO 13895 --- [quiz-backend] [           main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-03-15T17:31:53.681Z  WARN 13895 --- [quiz-backend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-03-15T17:31:54.207Z  WARN 13895 --- [quiz-backend] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-15T17:31:55.083Z  INFO 13895 --- [quiz-backend] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-03-15T17:31:55.083Z  INFO 13895 --- [quiz-backend] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4a304820]]
+2026-03-15T17:31:55.084Z  INFO 13895 --- [quiz-backend] [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-03-15T17:31:55.105Z  INFO 13895 --- [quiz-backend] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-03-15T17:31:55.115Z  INFO 13895 --- [quiz-backend] [           main] c.quiz.backend.QuizBackendApplication    : Started QuizBackendApplication in 6.982 seconds (process running for 7.361)
+2026-03-15T17:32:55.085Z  INFO 13895 --- [quiz-backend] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
